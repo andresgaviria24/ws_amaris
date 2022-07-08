@@ -3,13 +3,14 @@ package server
 import (
 	"log"
 	"os"
-	"ws_amaris/application"
-	"ws_amaris/interfaces/middleware"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/swag/example/basic/docs"
+
+	"ws_amaris/application"
+	"ws_amaris/docs"
+	"ws_amaris/interfaces/middleware"
 )
 
 type ServerImpl struct {

@@ -2,10 +2,11 @@ package application
 
 import (
 	"net/http"
-	"ws_amaris/domain/dto"
-	"ws_amaris/domain/service"
 
 	"github.com/gin-gonic/gin"
+
+	"ws_amaris/domain/dto"
+	"ws_amaris/domain/service"
 )
 
 type Controller struct {

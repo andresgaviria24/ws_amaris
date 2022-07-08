@@ -6,9 +6,10 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-	"ws_amaris/domain/dto"
 
 	"github.com/sony/gobreaker"
+
+	"ws_amaris/domain/dto"
 )
 
 type PokemonImpl struct {

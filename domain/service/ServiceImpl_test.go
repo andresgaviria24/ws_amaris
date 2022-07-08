@@ -2,9 +2,10 @@ package service
 
 import (
 	"testing"
-	"ws_amaris/domain/dto"
 
 	"github.com/go-playground/assert/v2"
+
+	"ws_amaris/domain/dto"
 )
 
 func TestSplitter(t *testing.T) {
