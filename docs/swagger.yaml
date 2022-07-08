@@ -1,0 +1,116 @@
+openapi: '3.0.2'
+info:
+  title: ws_amaris
+  description: WS desarrollo de prueba tecnica
+  contact:
+    name: Andrés Gaviria
+    email: andres_felipe_gaviria28@hotmail.com
+  version: '0.1'
+servers:  
+- url: http://localhost:8080
+  description: Url de desarrollo
+
+paths:
+  /splitter/:string:
+    get:
+      tags:
+        - "Splitter"
+      summary: "devuelva dos parametros: una array de strings con los nombres ordenados alfabeticamente y un entero indicando la cantidad de nombres"
+      description: ""
+      responses:
+        200:
+          description: Success
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Splitter'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /pokemon/:id:
+    get:
+      tags:
+        - "Pokemon"
+      summary: "obtener el nombre del pokemon por id"
+      description: ""
+      responses:
+        200:
+          description: Success
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pokemon'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /friendly-chains:
+    post:
+      tags:
+        - "Friendly chains"
+      summary: "imprime si X e Y son amigas"
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Friendly'
+      responses:
+        200:
+          description: Success
+          content: 
+            application/json:
+              schema:
+                type: string
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  
+components:
+  schemas:
+    Response:
+      type: "object"
+      properties:
+        status:
+          type: "string"
+          description: "Código del estado"
+        message:
+          type: "string"
+          description: "Es el mensaje a mostrar del error a detalle"
+    Splitter:
+      type: object
+      properties:
+        split:
+          type: array
+          items:
+              type: string
+        count:
+          type: number
+          description: "2"
+    Pokemon:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "ivysaur"
+    Friendly:
+      type: object
+      properties:
+        textOne:
+          type: string
+          description: "tokyo"
+        textTwo:
+          type: string
+          description: "kyoto"
+          
