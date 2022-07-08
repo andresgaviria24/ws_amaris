@@ -15,18 +15,28 @@
       "description": "Url de desarrollo"
     },
     {
-      "url": "https://restaurantag.herokuapp.com/",
-      "description": "Url de pruebas"
+      "url": "https://wsamaris.herokuapp.com/",
+      "description": "Url de test"
     }
   ],
   "paths": {
-    "/splitter/:string": {
+    "/splitter/{string}": {
       "get": {
         "tags": [
           "Splitter"
         ],
         "summary": "devuelva dos parametros: una array de strings con los nombres ordenados alfabeticamente y un entero indicando la cantidad de nombres",
         "description": "",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "string",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -54,13 +64,22 @@
         }
       }
     },
-    "/pokemon/:id": {
+    "/pokemon/{id}": {
       "get": {
         "tags": [
           "Pokemon"
         ],
         "summary": "obtener el nombre del pokemon por id",
-        "description": "",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
