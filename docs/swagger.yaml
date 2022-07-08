@@ -49,7 +49,7 @@ paths:
         - in: path
           name: id
           schema:
-            type: string
+            type: number
           required: true
       responses:
         200:
@@ -126,3 +126,4 @@ components:
         textTwo:
           type: string
           description: "kyoto"
+          
