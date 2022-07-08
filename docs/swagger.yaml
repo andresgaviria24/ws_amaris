@@ -9,14 +9,22 @@ info:
 servers:  
 - url: http://localhost:8080
   description: Url de desarrollo
+- url: https://wsamaris.herokuapp.com/
+  description: Url de test
 
 paths:
-  /splitter/:string:
+  /splitter/{string}:
     get:
       tags:
         - "Splitter"
       summary: "devuelva dos parametros: una array de strings con los nombres ordenados alfabeticamente y un entero indicando la cantidad de nombres"
       description: ""
+      parameters:
+        - in: path
+          name: string
+          schema:
+            type: string
+          required: true
       responses:
         200:
           description: Success
@@ -32,12 +40,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
-  /pokemon/:id:
+  /pokemon/{id}:
     get:
       tags:
         - "Pokemon"
       summary: "obtener el nombre del pokemon por id"
-      description: ""
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
       responses:
         200:
           description: Success
@@ -113,4 +126,3 @@ components:
         textTwo:
           type: string
           description: "kyoto"
-          

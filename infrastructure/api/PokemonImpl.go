@@ -47,7 +47,7 @@ func (e *PokemonImpl) PokemonById(id string) (*dto.PokemonNameDto, error) {
 			return nil, errors.New("error")
 		}
 
-		//e.paramHeader(request, headers)
+		e.paramHeader(request)
 
 		response, err := client.Do(request)
 		if err != nil {
@@ -70,11 +70,6 @@ func (e *PokemonImpl) PokemonById(id string) (*dto.PokemonNameDto, error) {
 	return &name, nil
 }
 
-/*
-func (e *EnterpriseImpl) paramHeader(request *http.Request, headers dto.HeadersDto) {
+func (e *PokemonImpl) paramHeader(request *http.Request) {
 	request.Header.Set("Accepts", "application/json")
-	request.Header.Set("Authorization", "Bearer "+headers.Token)
-	request.Header.Add(os.Getenv("LENGUAGE_HEADER"), headers.Language)
-	request.Header.Add(os.Getenv("TENANT_HEADER"), headers.TenantId)
 }
-*/
